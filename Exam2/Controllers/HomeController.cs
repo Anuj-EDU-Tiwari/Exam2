@@ -179,6 +179,7 @@ namespace Exam2.Controllers
             {
                 p.Password = lr.NewPassword;
                 db.Entry(p).State=System.Data.Entity.EntityState.Modified;
+                //db.SaveChanges ();
                 db.SaveChanges();
                 TempData["msg"] = "<script>alter('Password has been changed successfully');</script>";
 
