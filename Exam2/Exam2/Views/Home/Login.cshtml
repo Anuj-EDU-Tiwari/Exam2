@@ -1,0 +1,38 @@
+﻿@model Exam2.Models.Class2
+@{
+    ViewBag.Title = "Login";
+}
+
+<style>
+    .error {
+        color: blue;
+    }
+</style>
+
+<h2 style="background-color:beige">Login</h2>
+
+@using (Html.BeginForm("Login", "Home", FormMethod.Post))
+{
+    <div class="form-group">
+        <label>Email</label>
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        <span class="error">@TempData["usenofound"]</span>
+        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "error" })
+    </div>
+    <br>
+    <div class="form-group">
+        <label>Password</label>
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        <span class="error">@TempData["password"]</span>
+        <!--@Html.ValidationMessageFor(m => m.Password, "", new { @class = "error" })-->
+    </div>
+    <br>
+    <button type="submit" class="btn btn-outline-primary">Login</button>
+
+    <span>@Html.ActionLink("ChangePassword", "NewPassword", "Home")</span>
+    <br>
+    <br>
+    <span>@Html.ActionLink("Need an Account? Sign up now", "Register", "Home")</span>
+    <br>
+}
+

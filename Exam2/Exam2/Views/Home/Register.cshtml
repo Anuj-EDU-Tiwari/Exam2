@@ -1,0 +1,46 @@
+﻿@model Exam2.Models.Class2
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>Register</h2>
+
+<style>
+    .error {
+        color: red;
+    }
+</style>
+
+<br>
+
+@using (Html.BeginForm("Register", "Home", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.Id)
+
+    <div class="form-group">
+        <label>Name</label>
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-group" })
+        @Html.ValidationMessageFor(m => m.Name, "", new { @class = "error" })
+    </div>
+    <br>
+    <div class="form-group">
+        <label>Email</label>
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-group" })
+        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "error" })
+    </div>
+    <br>
+    <div class="form-group">
+        <label>Address</label>
+        @Html.TextBoxFor(m => m.Address, new { @class = "form-group" })
+        @Html.ValidationMessageFor(m => m.Address, "", new { @class = "error" })
+    </div>
+    <br>
+    <div class="form-group">
+        <label>Password</label>
+        @Html.TextBoxFor(m => m.Password, new { @class = "form-group" })
+        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "error" })
+    </div>
+    <br>
+    <button type="submit" class="btn btn-outline-primary">Submit</button>
+}
+
